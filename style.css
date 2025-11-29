@@ -1,8 +1,8 @@
-/* Reset and basic styling */
+/* Reset and base styling */
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -13,6 +13,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  transition: background 0.3s ease;
   color: #fff;
 }
 
@@ -20,51 +21,69 @@ body {
   background: rgba(255, 255, 255, 0.05);
   padding: 30px;
   border-radius: 15px;
-  width: 90%;
-  max-width: 500px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+  width: 95%;
+  max-width: 700px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
   backdrop-filter: blur(10px);
 }
 
 h1 {
   text-align: center;
   margin-bottom: 20px;
-  font-size: 2rem;
+  font-size: 2.2rem;
   letter-spacing: 1px;
 }
 
-.task-input {
+.controls {
   display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
   margin-bottom: 20px;
 }
 
-.task-input input {
-  flex: 1;
+.controls input[type="text"],
+.controls input[type="date"],
+.controls select {
   padding: 10px 15px;
-  border-radius: 50px 0 0 50px;
+  border-radius: 50px;
   border: none;
   outline: none;
   font-size: 1rem;
+  flex: 1;
 }
 
-.task-input button {
+.controls button {
   background-color: #fff;
   color: #2575fc;
   border: none;
   padding: 10px 20px;
-  border-radius: 0 50px 50px 0;
+  border-radius: 50px;
   font-size: 1.5rem;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 
-.task-input button:hover {
+.controls button:hover {
   transform: scale(1.1);
   background-color: #e0e0e0;
 }
 
+.search-bar {
+  margin-bottom: 20px;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 10px 15px;
+  border-radius: 50px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+}
+
 ul {
   list-style: none;
+  padding: 0;
 }
 
 li {
@@ -73,14 +92,35 @@ li {
   margin-bottom: 10px;
   border-radius: 10px;
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: center;
   transition: all 0.3s ease;
+  cursor: grab;
 }
 
-li.completed {
+li.dragging {
+  opacity: 0.5;
+}
+
+li .task-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+li.high {
+  border-left: 5px solid #ff4d4d;
+}
+
+li.completed span.task-text {
   text-decoration: line-through;
   opacity: 0.6;
+}
+
+.task-meta {
+  font-size: 0.85rem;
+  margin-top: 5px;
+  color: #ddd;
 }
 
 li button {
@@ -89,6 +129,7 @@ li button {
   color: #ff4d4d;
   font-size: 1.2rem;
   cursor: pointer;
+  margin-left: 5px;
   transition: color 0.2s ease;
 }
 
@@ -96,9 +137,24 @@ li button:hover {
   color: #ff0000;
 }
 
+.theme-toggle {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 1rem;
+}
+
 footer {
   margin-top: 40px;
   text-align: center;
   font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.7);
+}
+
+body.dark {
+  background: #1a1a1a;
+  color: #fff;
+}
+
+body.dark .container {
+  background: rgba(255, 255, 255, 0.05);
 }
