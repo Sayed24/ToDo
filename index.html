@@ -3,19 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Advanced Fancy To-Do List</title>
+  <title>Pro Task Manager</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
-    <h1>My Fancy Tasks</h1>
-    
+    <h1>Pro Task Manager</h1>
+
     <div class="controls">
       <input type="text" id="new-task" placeholder="Add a new task...">
       <input type="date" id="due-date">
       <select id="priority">
         <option value="normal">Normal</option>
         <option value="high">High Priority</option>
+      </select>
+      <select id="category">
+        <option value="work">Work</option>
+        <option value="personal">Personal</option>
+        <option value="study">Study</option>
+        <option value="other">Other</option>
       </select>
       <button id="add-btn">+</button>
     </div>
