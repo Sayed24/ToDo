@@ -3,23 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fancy To-Do List</title>
+  <title>Advanced Fancy To-Do List</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
-    <h1>My Tasks</h1>
-    <div class="task-input">
+    <h1>My Fancy Tasks</h1>
+    
+    <div class="controls">
       <input type="text" id="new-task" placeholder="Add a new task...">
+      <input type="date" id="due-date">
+      <select id="priority">
+        <option value="normal">Normal</option>
+        <option value="high">High Priority</option>
+      </select>
       <button id="add-btn">+</button>
     </div>
-    <ul id="task-list"></ul>
+
+    <div class="search-bar">
+      <input type="text" id="search-task" placeholder="Search tasks...">
+    </div>
+
+    <ul id="task-list" class="sortable"></ul>
+
+    <div class="theme-toggle">
+      <label>
+        <input type="checkbox" id="theme-switch">
+        Dark Mode
+      </label>
+    </div>
   </div>
 
   <footer>
     <p>Created by SayedRahim Sadat</p>
   </footer>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.15.0/Sortable.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
